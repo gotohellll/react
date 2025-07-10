@@ -1,0 +1,19 @@
+//synch 동기 방법 
+
+function orderA(){
+    console.log('A 작업');
+    // 만일 이 작업이 시간 소요가 많다면 ? B, C도 딜레이 => 비동기방법 사용 : A작업에서 시간소요가 있더라도 바로 B작업 시작 
+}
+
+function orderB(){
+    console.log('B 작업');
+}
+
+function orderC(){
+    console.log('C 작업');
+}
+
+orderA();
+orderB();
+orderC();
+//순차적으로 실행 
