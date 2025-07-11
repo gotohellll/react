@@ -6,6 +6,7 @@
 	` 라이프사이클 함수는 버전별로 없어지고 생기는 함수가 많기에 다 할 필요는 없다
 	
       * 마운팅
+        -> 컴포넌트가 생성되는 시점
 
         ` 리엑트가 처음으로 각 컴포넌트의 render() 함수를 콜해 자신의 DOM 트리를 구성하는 과정을 마운팅이라 한다.
         ` 마운팅 과정
@@ -43,7 +44,7 @@ class ClassComp extends Component{
   }
 
   shouldComponentUpdate(nextProps, nextState){
-   console.log('=======> 3)shouldComponentUpdate')
+    console.log('=======> 3)shouldComponentUpdate')
    return true; // true 반환하면 render() 호출하고 false이면 호출하지 않는다
   }
 
@@ -70,6 +71,20 @@ class ClassComp extends Component{
     )
   }
 
+/* 
+브라우저 콘솔창에서 확인 가능 
+처음 화면이 뜨는 순간 
+=======> 0)constructor
+=======> 1)componentWillMount
+=======> 6)render
+=======> 2)componentDidMount
+
+'눌려'버튼을 누른 순간
+=======> 3)shouldComponentUpdate
+=======> 4)componentWillUpdate
+=======> 6)render
+=======> 5)componentDidUpdate
+ */
   
 	/*
 	// ` 컴포넌트 업데이트 
@@ -84,7 +99,7 @@ class ClassComp extends Component{
   componentDidUnMount(){
     console.log('=======> 9)componentDidUnMount')
   }
- 
+
 }
 
 function App() {

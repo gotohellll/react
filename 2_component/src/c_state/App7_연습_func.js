@@ -1,11 +1,14 @@
 import { useState } from 'react';
 import '../App.css';
 
-function MyNav( /* 여기 */){
+function MyNav( props/* 여기 */){
     var lists = []
     /* 상위컴포넌트에서 넘겨받은 데이타를 <li>를 구성하여 lists 배열로 만든다 */
+    var data = props.data
 
-
+    data.forEach((data)=>{
+      lists.push(<li key={data.id}><a href={data.site}>{data.name}</a></li>)
+    })
 
     
     return ( <ul>{lists}</ul>)

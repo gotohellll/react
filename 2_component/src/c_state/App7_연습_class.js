@@ -3,10 +3,10 @@ import '../App.css';
 
 class MyNav extends Component{
   render(){
-    var lists = []
-    var data = this.props.data
+    var lists = [] //배열변수 
+    var data = this.props.data //
     for(var i=0; i<data.length; i++){
-        lists.push(<li><a key={data[i].id} href={data[i].site}>{data[i].name}</a></li>)
+        lists.push(<li key={data[i].id}><a href={data[i].site}>{data[i].name}</a></li>) //push로 값을 바로 넣고있어 map필요없음 
     }
     return ( <ul>{lists}</ul>)
   }
