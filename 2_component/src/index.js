@@ -23,7 +23,14 @@ import reportWebVitals from './reportWebVitals';
 // import App from './e_hook/App0_useState';
 // import App from './e_hook/App1_useEffect';
 // import App from './e_hook/App1_useEffect연습';
-import App from './e_hook/App2_useMemo';
+// import App from './e_hook/App2_useMemo';
+// import App from './e_hook/App3_useCallback';
+// import App from './e_hook/App4_useRef';
+// import App from './e_hook/App4_useRef2';
+// import App from './e_hook/App4_useRef3';
+// import App from './e_hook/App5_todo';
+// import App from './e_hook/App6_userHook';
+import App from './z_exercise/App';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

@@ -8,15 +8,24 @@
     ` useState() : 값을 변경하는 변수
     ` useEffect(): 생명주기 관리 
 
-    useMemo
+    ` useMemo
 
         ` 성능 개선을 위해서 리턴값을 캐싱 cache (임시메모리에 저장해두어 성능속도 향상)
         ` 일반적인 경우 많이 사용하진 않고, 잘못하면 오히려 성능저하 야기 
 
     리턴변수 = useMemo(func, [변수]) //리턴변수는 캐시에 잡아두어 변수가 불릴때마다 바로 불러 사용 
+
+    ` useCallback()
+        - 주로 랜더링 성능을 최적화해야 하는 상황에 사용 -> 잘못하면 오히려 성능저하 야기 
+        - useMemo()와 유사
+
+            useMemo()       -> 캐싱의 대상이 함수의 리턴값
+            useCallback()   -> 캐싱의 대상이 컴포넌트 내부의 함수 (자주 사용하는 함수를 useCallback에 넣어 성능향상)
+
+
 */
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useCallback } from "react";
 
 // 일반 함수
 const getCalc = (nums)=>{
@@ -34,14 +43,27 @@ const Average = ()=>{
     const [list, setList]  = useState([])
     const [num, setNum]    = useState('')
 
-    const onChange = (evt)=>{ setNum(evt.target.value) }
-    const onInsert = ()=>{
-        list.push(parseInt(num)) // 입력받은 값을 list에 저장 /  num 초기값이 문자열이라 형변환
+    // const onChange = (evt)=>{ setNum(evt.target.value) }
+    // ***********useCallback()함수 ****
+    const onChange = useCallback((evt)=>{ 
+        setNum(evt.target.value) 
+    },[])
+
+    // const onInsert = ()=>{
+    //     list.push(parseInt(num)) // 입력받은 값을 list에 저장 /  num 초기값이 문자열이라 형변환
+    //     console.log(list)
+    //     // setList(list)
+    //     setList([...list])
+    //     setNum('') //다시 공백 처리
+    // }
+
+    const onInsert = useCallback(()=>{
+        list.push(parseInt(num))
         console.log(list)
         // setList(list)
         setList([...list])
-        setNum('') //다시 공백 처리
-    }
+        setNum('')
+    },[num, list])
 
     //------------------------------
     const result = useMemo(()=>getCalc(list),[list]) //list가 변경될때만 호출
