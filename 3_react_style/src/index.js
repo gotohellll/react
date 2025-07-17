@@ -7,7 +7,17 @@ import reportWebVitals from './reportWebVitals';
 // import App from './b_conditional/1_truthy';
 // import App from './b_conditional/2_inline_condition';
 // import App from './b_conditional/3_element_variable';
-import App from './b_conditional/4_stop_rendering';
+// import App from './b_conditional/4_stop_rendering';
+// import App from './c_form/1_button';
+// import App from './c_form/2_form';
+// import App from './c_form/3_controlled';
+// import App from './c_form/4_uncontrolled';
+// import App from './c_form/9_exercise';
+// import App from './d_props/1_props';
+// import App from './d_props/2_containment';
+// import App from './d_props/3_containment';
+// import App from './e_immer/1_basic';
+import App from './e_immer/2_exercise';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
