@@ -1,0 +1,8 @@
+
+.todo-done { text-decoration: line-through;}
+.pointer { cursor: pointer;}
+
+.title { text-align: center;
+        font-weight: bold;
+        font-size: 20pt;
+}
